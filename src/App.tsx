@@ -238,10 +238,10 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 </p>
               </section>
 
-              <section className=”space-y-4”>
-                <h3 className=”text-lg font-bold text-slate-900 uppercase tracking-tight”>4. Google Maps (Iframe-Einbindung)</h3>
+              <section className="space-y-4">
+                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">4. Google Maps (Iframe-Einbindung)</h3>
                 <p>
-                  Diese Website bindet Karten des Dienstes Google Maps per Iframe ein. Anbieter ist die Google Ireland Limited („Google”), Gordon House, Barrow Street, Dublin 4, Irland.
+                  Diese Website bindet Karten des Dienstes Google Maps per Iframe ein. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
                 </p>
                 <p>
                   Beim Laden der Seite stellt Ihr Browser eine direkte Verbindung zu den Servern von Google her. Dabei wird Ihre IP-Adresse sowie Informationen über Ihren Browser und Ihr Betriebssystem an Google übertragen und in der Regel auf Servern in den USA gespeichert. Auf diese Datenübertragung haben wir keinen Einfluss.
