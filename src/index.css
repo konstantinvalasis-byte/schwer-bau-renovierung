@@ -1,58 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  
-  --color-brand-50: #f8fafc;
-  --color-brand-100: #f1f5f9;
-  --color-brand-200: #e2e8f0;
-  --color-brand-300: #cbd5e1;
-  --color-brand-400: #94a3b8;
-  --color-brand-500: #64748b;
-  --color-brand-600: #475569;
-  --color-brand-700: #334155;
-  --color-brand-800: #1e293b;
-  --color-brand-900: #0f172a;
-  --color-brand-950: #020617;
-  
-  --color-accent: #e11d48; /* Construction Red (Rose 600) */
-  --color-accent-dark: #be123c;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-white text-slate-900 antialiased;
   }
 }
-
-.glass {
-  @apply bg-white/90 backdrop-blur-md border border-slate-200;
-}
-
-.glass-dark {
-  @apply bg-slate-950/90 backdrop-blur-md border border-white/5;
-}
-
-.section-divider {
-  @apply w-full h-px bg-slate-200 my-0;
-}
-
-.grid-line {
-  @apply border-slate-200;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.mask-fade-bottom {
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-}
-
