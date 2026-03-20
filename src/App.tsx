@@ -39,28 +39,28 @@ const SERVICES = [
     title: "Hochbau",
     description: "Wir realisieren anspruchsvolle Neubauprojekte mit Fokus auf Qualität, Effizienz und Langlebigkeit.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-hochbau.jpg",
     tag: "Hochbau"
   },
   {
     title: "Renovierung & Sanierung",
     description: "Von der Kernsanierung bis zur hochwertigen Renovierung – wir modernisieren Bestandsimmobilien und erhalten wertvolle Bausubstanz.",
     icon: Hammer,
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-renovierung.jpg",
     tag: "Renovierung & Sanierung"
   },
   {
     title: "Gewerbe",
     description: "Von Industrie- über Bürogebäude bis hin zu Handelsimmobilien – wir realisieren anspruchsvolle Gewerbeprojekte.",
     icon: Factory,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-tiefbau.jpg",
     tag: "Gewerbe"
   },
   {
     title: "Baumanagement",
     description: "Professionelle Projektsteuerung und Koordination aller Gewerke – von der Planung bis zur schlüsselfertigen Übergabe.",
     icon: ClipboardList,
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
+    image: "/img-schluesselfertig.jpg",
     tag: "Baumanagement"
   }
 ];
@@ -191,7 +191,7 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
-            className="bg-white w-full max-w-3xl max-h-[85vh] overflow-y-auto p-12 relative shadow-2xl"
+            className="bg-white w-full max-w-3xl max-h-[85vh] overflow-y-auto p-6 sm:p-12 relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button 
@@ -204,7 +204,7 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             
             <div className="space-y-8 text-slate-600 text-sm leading-relaxed">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-6 uppercase tracking-tighter">Datenschutzerklärung</h2>
+                <h2 className="text-xl sm:text-3xl font-bold text-slate-900 mb-6 uppercase tracking-tighter hyphens-auto">Datenschutzerklärung</h2>
                 <div className="w-12 h-1 bg-rose-600 mb-8"></div>
               </div>
 
@@ -230,11 +230,11 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                 <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">3. Datenerfassung auf dieser Website</h3>
                 <p><strong>Hosting</strong></p>
                 <p>
-                  Wir hosten unsere Website bei Vercel / GitHub. Anbieter ist die Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA bzw. GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. Vercel/GitHub erfasst automatisch Server-Log-Dateien (IP-Adresse, Browsertyp, Betriebssystem, Referrer URL, Zeitstempel). Dies ist technisch notwendig, um die Website stabil und sicher anzuzeigen (Art. 6 Abs. 1 lit. f DSGVO).
+                  Wir hosten unsere Website bei Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Vercel erfasst automatisch Server-Log-Dateien (IP-Adresse, Browsertyp, Betriebssystem, Referrer URL, Zeitstempel). Dies ist technisch notwendig, um die Website stabil und sicher anzuzeigen (Art. 6 Abs. 1 lit. f DSGVO). Die Datenübertragung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln. Mit Vercel besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO.
                 </p>
                 <p><strong>Cookies</strong></p>
                 <p>
-                  Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf Ihrem Endgerät speichert. Wir nutzen technisch notwendige Cookies, um die Funktionalität der Seite zu gewährleisten, sowie optionale Cookies für Analyse- oder Marketingzwecke, sofern Sie eingewilligt haben.
+                  Unsere Website verwendet ausschließlich technisch notwendige Cookies, um die Funktionalität der Seite zu gewährleisten (z. B. Speicherung Ihrer Cookie-Einstellungen). Diese Cookies erfordern keine Einwilligung (Art. 6 Abs. 1 lit. f DSGVO).
                 </p>
               </section>
 
@@ -244,10 +244,10 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   Diese Website bindet Karten des Dienstes Google Maps per Iframe ein. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
                 </p>
                 <p>
-                  Beim Laden der Seite stellt Ihr Browser eine direkte Verbindung zu den Servern von Google her. Dabei wird Ihre IP-Adresse sowie Informationen über Ihren Browser und Ihr Betriebssystem an Google übertragen und in der Regel auf Servern in den USA gespeichert. Auf diese Datenübertragung haben wir keinen Einfluss.
+                  Google Maps wird nur geladen, wenn Sie dem Einsatz über unser Cookie-Banner zugestimmt haben. Nach Ihrer Einwilligung stellt Ihr Browser eine direkte Verbindung zu den Servern von Google her. Dabei wird Ihre IP-Adresse sowie Informationen über Ihren Browser und Ihr Betriebssystem an Google übertragen und in der Regel auf Servern in den USA gespeichert. Auf diese Datenübertragung haben wir keinen Einfluss.
                 </p>
                 <p>
-                  Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der anschaulichen Darstellung unseres Standorts). Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO.
+                  Die Nutzung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Die Einwilligung kann jederzeit mit Wirkung für die Zukunft über unsere Cookie-Einstellungen widerrufen werden.
                 </p>
                 <p>
                   Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <strong>https://policies.google.com/privacy</strong>
@@ -255,9 +255,36 @@ const DatenschutzModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
               </section>
 
               <section className="space-y-4">
-                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">5. Ihre Rechte</h3>
+                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">5. WhatsApp</h3>
                 <p>
-                  Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
+                  Auf dieser Website ist ein Link zum Messenger-Dienst WhatsApp eingebunden. Anbieter ist die WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland (Teil des Meta-Konzerns).
+                </p>
+                <p>
+                  Wenn Sie auf den WhatsApp-Link klicken, werden Sie zur WhatsApp-App oder -Website weitergeleitet. Eine Datenübertragung an WhatsApp/Meta findet erst durch Ihren Klick statt. Wir haben keinen Einfluss auf die Datenverarbeitung durch WhatsApp. Weitere Informationen finden Sie in der Datenschutzerklärung von WhatsApp: <strong>https://www.whatsapp.com/legal/privacy-policy</strong>
+                </p>
+              </section>
+
+              <section className="space-y-4">
+                <h3 className="text-lg font-bold text-slate-900 uppercase tracking-tight">6. Ihre Rechte</h3>
+                <p>Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+                  <li><strong>Recht auf Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+                  <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+                  <li><strong>Recht auf Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+                  <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                  <li><strong>Widerspruchsrecht</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                  <li><strong>Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+                </ul>
+                <p>
+                  Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <strong>info@schwer-bau.de</strong>
+                </p>
+                <p><strong>Beschwerderecht bei der Aufsichtsbehörde</strong></p>
+                <p>
+                  Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren (Art. 77 DSGVO). Zuständige Aufsichtsbehörde für Baden-Württemberg ist:<br />
+                  Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg<br />
+                  Königstraße 10a, 70173 Stuttgart<br />
+                  <strong>https://www.baden-wuerttemberg.datenschutz.de</strong>
                 </p>
               </section>
             </div>
@@ -572,7 +599,7 @@ export default function App() {
         <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
           <motion.div style={{ opacity, scale }} className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920"
+              src="/img-hero.jpg"
               alt="Baustelle der SCHWER BAU GmbH in Hemmingen"
               className="w-full h-full object-cover opacity-40"
               referrerPolicy="no-referrer"
@@ -681,7 +708,7 @@ export default function App() {
                   className="aspect-square bg-slate-200 overflow-hidden"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200"
+                    src="/img-hero.jpg"
                     alt="Team der SCHWER BAU GmbH bei der Arbeit"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                     referrerPolicy="no-referrer"
