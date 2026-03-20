@@ -708,8 +708,8 @@ export default function App() {
                   className="aspect-square bg-slate-200 overflow-hidden"
                 >
                   <img
-                    src="/img-hero.jpg"
-                    alt="Team der SCHWER BAU GmbH bei der Arbeit"
+                    src="/img-ueber-uns.jpg"
+                    alt="Handwerker der SCHWER BAU GmbH bei der Arbeit"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                     referrerPolicy="no-referrer"
                     loading="lazy"
