@@ -99,72 +99,72 @@ const STATS = [
 const GALLERY_SLIDES = [
   {
     title: "Bewehrung Dachdecke",
-    button: "Projekt anfragen",
+
     src: "/gallery-01.jpg",
   },
   {
     title: "Terrassenbau mit Überdachung",
-    button: "Projekt anfragen",
+
     src: "/gallery-02.jpg",
   },
   {
     title: "Kellerbodenplatte mit Bewehrung",
-    button: "Projekt anfragen",
+
     src: "/gallery-04.jpg",
   },
   {
     title: "Baggerarbeiten & Erdaushub",
-    button: "Projekt anfragen",
+
     src: "/gallery-05.jpg",
   },
   {
     title: "Bodenplatte mit Dämmung",
-    button: "Projekt anfragen",
+
     src: "/gallery-06.jpg",
   },
   {
     title: "Stahlbeton-Kellergeschoss",
-    button: "Projekt anfragen",
+
     src: "/gallery-07.jpg",
   },
   {
     title: "Dachterrasse – Fertigstellung",
-    button: "Projekt anfragen",
+
     src: "/gallery-08.jpg",
   },
   {
     title: "Pflasterarbeiten & Stützmauer",
-    button: "Projekt anfragen",
+
     src: "/gallery-09.jpg",
   },
   {
     title: "Einfahrt mit Pflastersteinen",
-    button: "Projekt anfragen",
+
     src: "/gallery-10.jpg",
   },
   {
     title: "Rohbau Ziegelmauerwerk",
-    button: "Projekt anfragen",
+
     src: "/gallery-11.jpg",
   },
   {
     title: "Granitplatten – Vorbereitung",
-    button: "Projekt anfragen",
+
     src: "/gallery-12.jpg",
   },
   {
     title: "Granit-Stützmauer – Fertig",
-    button: "Projekt anfragen",
+
     src: "/gallery-13.jpg",
   },
   {
     title: "Rollrasen – Gartengestaltung",
-    button: "Projekt anfragen",
+
     src: "/gallery-14.jpg",
   },
   {
     title: "Kernsanierung Altbau",
-    button: "Projekt anfragen",
+
     src: "/gallery-15.jpg",
   },
 ];
@@ -824,7 +824,7 @@ export default function App() {
 
               <div>
                 <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Das Unternehmen</span>
-                <h2 className="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-10 tracking-tighter uppercase">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] mb-10 tracking-tighter uppercase">
                   Qualität ist unser <br />
                   <span className="text-rose-600">Fundament</span>.
                 </h2>
@@ -836,7 +836,7 @@ export default function App() {
                     Als inhabergeführtes Unternehmen begleiten wir unsere Kunden bei der Realisierung ihrer Bauvorhaben. Unser Anspruch ist es, durch ehrliches Handwerk und innovative Lösungen bleibende Werte zu schaffen.
                   </p>
                 </div>
-                <div className="grid grid-cols-2 border border-slate-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 border border-slate-200">
                   {VALUES.map((value, i) => (
                     <motion.div
                       key={i}
@@ -844,7 +844,11 @@ export default function App() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className={`p-6 flex gap-5 items-start group hover:bg-white transition-colors ${i % 2 === 0 ? 'border-r border-slate-200' : ''} ${i < 2 ? 'border-b border-slate-200' : ''}`}
+                      className={`p-5 sm:p-6 flex gap-4 items-start group hover:bg-white transition-colors
+                        ${i < VALUES.length - 1 ? 'border-b border-slate-200' : ''}
+                        ${i % 2 === 0 ? 'sm:border-r sm:border-slate-200' : ''}
+                        ${i >= 2 ? 'sm:border-b-0' : ''}
+                      `}
                     >
                       <div className="w-10 h-10 bg-slate-50 flex items-center justify-center text-rose-600 flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition-colors">
                         <value.icon size={20} />

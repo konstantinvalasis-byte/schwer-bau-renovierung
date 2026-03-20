@@ -3,7 +3,6 @@ import { useState, useRef, useId } from "react";
 
 interface SlideData {
   title: string;
-  button: string;
   src: string;
 }
 
@@ -21,7 +20,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
-  const { src, button, title } = slide;
+  const { src, title } = slide;
 
   return (
     <div className="[perspective:1200px] [transform-style:preserve-3d]">
@@ -64,11 +63,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           <h2 className="text-lg md:text-2xl lg:text-3xl font-bold uppercase tracking-tight relative">
             {title}
           </h2>
-          <div className="flex justify-center">
-            <button className="mt-6 px-6 py-3 w-fit mx-auto text-xs font-bold uppercase tracking-widest text-slate-900 bg-white h-12 border border-transparent flex justify-center items-center rounded-none hover:bg-rose-600 hover:text-white transition duration-200 shadow-lg">
-              {button}
-            </button>
-          </div>
         </article>
       </li>
     </div>
