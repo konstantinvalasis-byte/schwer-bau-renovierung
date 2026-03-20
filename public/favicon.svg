@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="white"/>
+  <text x="2" y="21" font-family="Arial, sans-serif" font-weight="900" font-size="19" fill="#0f172a" letter-spacing="-1">SB</text>
+  <rect x="2" y="26" width="4.5" height="3" fill="#e11d48"/>
+  <rect x="7.5" y="26" width="4.5" height="3" fill="#94a3b8"/>
+  <rect x="13" y="26" width="4.5" height="3" fill="#e11d48"/>
+  <rect x="18.5" y="26" width="4.5" height="3" fill="#94a3b8"/>
+  <rect x="24" y="26" width="4.5" height="3" fill="#e11d48"/>
+</svg>

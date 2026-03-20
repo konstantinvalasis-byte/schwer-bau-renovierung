@@ -491,9 +491,11 @@ export default function App() {
         <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white border-b border-slate-200 py-4" : "bg-transparent py-6"}`}>
           <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="bg-white p-2 rounded-sm shadow-sm">
-                <Logo />
-              </div>
+              <a href="#home" aria-label="Zur Startseite scrollen" className="block">
+                <div className="bg-white p-2 rounded-sm shadow-sm">
+                  <Logo />
+                </div>
+              </a>
             </div>
             
             {/* Desktop Nav */}
