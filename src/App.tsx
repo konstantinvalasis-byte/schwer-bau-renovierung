@@ -324,12 +324,12 @@ const CookieSettingsModal = ({
                 </div>
                 <button
                   onClick={() => setLocalSettings(prev => ({ ...prev, maps: !prev.maps }))}
-                  className={`w-12 h-6 rounded-full relative transition-colors ${localSettings.maps ? 'bg-rose-600' : 'bg-slate-200'}`}
+                  className={`w-12 h-6 rounded-full relative flex-shrink-0 transition-colors ${localSettings.maps ? 'bg-rose-600' : 'bg-slate-200'}`}
                   aria-label="Google Maps ein- oder ausschalten"
                 >
                   <motion.div
                     animate={{ x: localSettings.maps ? 24 : 4 }}
-                    className="absolute top-1 w-4 h-4 bg-white rounded-full"
+                    className="absolute top-1 left-0 w-4 h-4 bg-white rounded-full"
                   />
                 </button>
               </div>
@@ -341,11 +341,11 @@ const CookieSettingsModal = ({
                 </div>
                 <button
                   onClick={() => setLocalSettings(prev => ({ ...prev, analytics: !prev.analytics }))}
-                  className={`w-12 h-6 rounded-full relative transition-colors ${localSettings.analytics ? 'bg-rose-600' : 'bg-slate-200'}`}
+                  className={`w-12 h-6 rounded-full relative flex-shrink-0 transition-colors ${localSettings.analytics ? 'bg-rose-600' : 'bg-slate-200'}`}
                 >
                   <motion.div
                     animate={{ x: localSettings.analytics ? 24 : 4 }}
-                    className="absolute top-1 w-4 h-4 bg-white rounded-full"
+                    className="absolute top-1 left-0 w-4 h-4 bg-white rounded-full"
                   />
                 </button>
               </div>
@@ -357,11 +357,11 @@ const CookieSettingsModal = ({
                 </div>
                 <button
                   onClick={() => setLocalSettings(prev => ({ ...prev, marketing: !prev.marketing }))}
-                  className={`w-12 h-6 rounded-full relative transition-colors ${localSettings.marketing ? 'bg-rose-600' : 'bg-slate-200'}`}
+                  className={`w-12 h-6 rounded-full relative flex-shrink-0 transition-colors ${localSettings.marketing ? 'bg-rose-600' : 'bg-slate-200'}`}
                 >
                   <motion.div
                     animate={{ x: localSettings.marketing ? 24 : 4 }}
-                    className="absolute top-1 w-4 h-4 bg-white rounded-full"
+                    className="absolute top-1 left-0 w-4 h-4 bg-white rounded-full"
                   />
                 </button>
               </div>
