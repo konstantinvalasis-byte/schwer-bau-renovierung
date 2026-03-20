@@ -17,6 +17,7 @@ import {
   ClipboardList
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { Carousel } from "./components/ui/carousel";
 
 const Logo = ({ className = "" }: { className?: string }) => (
   <div className={`flex flex-col items-start leading-none ${className}`} aria-label="SCHWER BAU Logo">
@@ -93,6 +94,79 @@ const STATS = [
   { label: "Abgeschlossene Projekte", value: "450+" },
   { label: "Zufriedene Kunden", value: "100%" },
   { label: "Mitarbeiter", value: "12" }
+];
+
+const GALLERY_SLIDES = [
+  {
+    title: "Bewehrung Dachdecke",
+    button: "Projekt anfragen",
+    src: "/gallery-01.jpg",
+  },
+  {
+    title: "Terrassenbau mit Überdachung",
+    button: "Projekt anfragen",
+    src: "/gallery-02.jpg",
+  },
+  {
+    title: "Kellerbodenplatte mit Bewehrung",
+    button: "Projekt anfragen",
+    src: "/gallery-04.jpg",
+  },
+  {
+    title: "Baggerarbeiten & Erdaushub",
+    button: "Projekt anfragen",
+    src: "/gallery-05.jpg",
+  },
+  {
+    title: "Bodenplatte mit Dämmung",
+    button: "Projekt anfragen",
+    src: "/gallery-06.jpg",
+  },
+  {
+    title: "Stahlbeton-Kellergeschoss",
+    button: "Projekt anfragen",
+    src: "/gallery-07.jpg",
+  },
+  {
+    title: "Dachterrasse – Fertigstellung",
+    button: "Projekt anfragen",
+    src: "/gallery-08.jpg",
+  },
+  {
+    title: "Pflasterarbeiten & Stützmauer",
+    button: "Projekt anfragen",
+    src: "/gallery-09.jpg",
+  },
+  {
+    title: "Einfahrt mit Pflastersteinen",
+    button: "Projekt anfragen",
+    src: "/gallery-10.jpg",
+  },
+  {
+    title: "Rohbau Ziegelmauerwerk",
+    button: "Projekt anfragen",
+    src: "/gallery-11.jpg",
+  },
+  {
+    title: "Granitplatten – Vorbereitung",
+    button: "Projekt anfragen",
+    src: "/gallery-12.jpg",
+  },
+  {
+    title: "Granit-Stützmauer – Fertig",
+    button: "Projekt anfragen",
+    src: "/gallery-13.jpg",
+  },
+  {
+    title: "Rollrasen – Gartengestaltung",
+    button: "Projekt anfragen",
+    src: "/gallery-14.jpg",
+  },
+  {
+    title: "Kernsanierung Altbau",
+    button: "Projekt anfragen",
+    src: "/gallery-15.jpg",
+  },
 ];
 
 const ImpressumModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
@@ -529,13 +603,13 @@ export default function App() {
             <div className="hidden md:flex items-center gap-10">
               {[
                 { label: 'Startseite', href: '#home' },
-                { label: 'Werte', href: '#werte' },
+                { label: 'Leistungen', href: '#leistungen' },
                 { label: 'Über uns', href: '#überuns' },
-                { label: 'Leistungen', href: '#leistungen' }
+                { label: 'Galerie', href: '#galerie' }
               ].map((item) => (
-                <a 
+                <a
                   key={item.label}
-                  href={item.href} 
+                  href={item.href}
                   className={`text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${scrolled ? "text-slate-600 hover:text-rose-600" : "text-slate-200 hover:text-white"}`}
                   aria-label={`Gehe zu ${item.label}`}
                 >
@@ -570,9 +644,9 @@ export default function App() {
               <div className="space-y-6">
                 {[
                   { label: 'Startseite', href: '#home' },
-                  { label: 'Werte', href: '#werte' },
+                  { label: 'Leistungen', href: '#leistungen' },
                   { label: 'Über uns', href: '#überuns' },
-                  { label: 'Leistungen', href: '#leistungen' }
+                  { label: 'Galerie', href: '#galerie' }
                 ].map((item) => (
                   <a
                     key={item.label}
@@ -638,115 +712,28 @@ export default function App() {
           </div>
           
           {/* Side Label */}
-          <div className="absolute right-10 bottom-32 hidden xl:block">
+          <div className="absolute right-10 bottom-40 hidden xl:block">
             <div className="rotate-90 origin-right text-[10px] font-bold tracking-[0.5em] text-white/30 uppercase">
               Schwer Bau- und Renovierung GmbH
             </div>
           </div>
-        </section>
 
-        {/* Stats Section */}
-        <section className="py-24 bg-slate-950 text-white border-b border-white/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-          </div>
-          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-20">
-              {STATS.map((stat, i) => (
-                <div key={i} className="relative group">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
+          {/* Stats Strip */}
+          <div className="absolute bottom-0 left-0 right-0 z-10 bg-slate-950/80 backdrop-blur-sm border-t border-white/5">
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <div className="grid grid-cols-2 md:grid-cols-4">
+                {STATS.map((stat, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 + i * 0.1 }}
+                    className={`py-6 px-4 md:px-8 text-center group ${i % 2 === 0 && i < STATS.length - 1 ? 'border-r border-white/5' : ''} ${i % 2 !== 0 && i < STATS.length - 1 ? 'md:border-r border-white/5' : ''} ${i < 2 ? 'border-b border-white/5 md:border-b-0' : ''}`}
                   >
-                    <div className="text-6xl md:text-8xl font-bold mb-4 tracking-tighter group-hover:text-rose-600 transition-colors">{stat.value}</div>
-                    <div className="text-[11px] uppercase tracking-[0.3em] text-slate-500 font-bold">{stat.label}</div>
+                    <div className="text-3xl md:text-4xl font-bold text-white tracking-tighter group-hover:text-rose-600 transition-colors">{stat.value}</div>
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-slate-500 font-bold mt-1">{stat.label}</div>
                   </motion.div>
-                  {i < STATS.length - 1 && (
-                    <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-px h-16 bg-white/10 hidden md:block"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section id="werte" className="py-24 md:py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {VALUES.map((value, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8 md:p-10 border border-slate-100 hover:border-rose-600 transition-colors group"
-                >
-                  <div className="w-14 h-14 bg-slate-50 flex items-center justify-center text-rose-600 mb-8 group-hover:bg-rose-600 group-hover:text-white transition-colors">
-                    <value.icon size={28} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 uppercase tracking-tight">{value.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="überuns" className="py-24 md:py-32 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-center">
-              <div className="relative">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="aspect-square bg-slate-200 overflow-hidden"
-                >
-                  <img
-                    src="/img-ueber-uns.jpg"
-                    alt="Handwerker der SCHWER BAU GmbH bei der Arbeit"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
-                </motion.div>
-                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-rose-600 flex items-center justify-center text-white p-8 text-center hidden md:flex">
-                  <div className="text-sm font-bold uppercase tracking-[0.2em]">Ehrliches Bauen. Seit 2006.</div>
-                </div>
-              </div>
-
-              <div>
-                <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Das Unternehmen</span>
-                <h2 className="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-10 tracking-tighter uppercase">
-                  Qualität ist unser <br />
-                  <span className="text-rose-600">Fundament</span>.
-                </h2>
-                <div className="space-y-8 text-slate-600 leading-relaxed">
-                  <p className="text-lg font-medium text-slate-900">
-                    SCHWER BAU steht für Verlässlichkeit, Kompetenz und höchste handwerkliche Präzision in der Region Hemmingen.
-                  </p>
-                  <p>
-                    Als inhabergeführtes Unternehmen begleiten wir unsere Kunden bei der Realisierung ihrer Bauvorhaben. Unser Anspruch ist es, durch ehrliches Handwerk und innovative Lösungen bleibende Werte zu schaffen.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-                    {[
-                      "Zertifizierter Meisterbetrieb",
-                      "Regionale Wertschöpfung",
-                      "Termintreue & Kostensicherheit",
-                      "Modernste BIM-Planung"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-900">
-                        <div className="w-6 h-px bg-rose-600"></div>
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -768,7 +755,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {SERVICES.map((service, i) => (
                 <motion.div
                   key={i}
@@ -778,7 +765,7 @@ export default function App() {
                   transition={{ delay: i * 0.1 }}
                   className="group bg-white border border-slate-200 flex flex-col h-full hover:shadow-2xl transition-all duration-500"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     <img
                       src={service.image}
                       alt={`Leistung: ${service.title} - SCHWER BAU GmbH`}
@@ -811,17 +798,104 @@ export default function App() {
           </div>
         </section>
 
+        {/* About Section */}
+        <section id="überuns" className="py-24 md:py-32 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <div className="grid lg:grid-cols-2 gap-12 md:gap-24 items-start">
+              <div className="relative lg:sticky lg:top-28">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="aspect-square bg-slate-200 overflow-hidden"
+                >
+                  <img
+                    src="/img-ueber-uns.jpg"
+                    alt="Handwerker der SCHWER BAU GmbH bei der Arbeit"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                </motion.div>
+                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-rose-600 flex items-center justify-center text-white p-8 text-center hidden lg:flex">
+                  <div className="text-sm font-bold uppercase tracking-[0.2em]">Ehrliches Bauen. Seit 2006.</div>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Das Unternehmen</span>
+                <h2 className="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-10 tracking-tighter uppercase">
+                  Qualität ist unser <br />
+                  <span className="text-rose-600">Fundament</span>.
+                </h2>
+                <div className="space-y-6 text-slate-600 leading-relaxed mb-12">
+                  <p className="text-lg font-medium text-slate-900">
+                    SCHWER BAU steht für Verlässlichkeit, Kompetenz und höchste handwerkliche Präzision in der Region Hemmingen.
+                  </p>
+                  <p>
+                    Als inhabergeführtes Unternehmen begleiten wir unsere Kunden bei der Realisierung ihrer Bauvorhaben. Unser Anspruch ist es, durch ehrliches Handwerk und innovative Lösungen bleibende Werte zu schaffen.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 border border-slate-200">
+                  {VALUES.map((value, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className={`p-6 flex gap-5 items-start group hover:bg-white transition-colors ${i % 2 === 0 ? 'border-r border-slate-200' : ''} ${i < 2 ? 'border-b border-slate-200' : ''}`}
+                    >
+                      <div className="w-10 h-10 bg-slate-50 flex items-center justify-center text-rose-600 flex-shrink-0 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                        <value.icon size={20} />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold mb-1 uppercase tracking-tight">{value.title}</h3>
+                        <p className="text-slate-500 text-xs leading-relaxed">{value.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section id="galerie" className="py-24 md:py-32 bg-slate-950 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 mb-16">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+              <div>
+                <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Referenzen</span>
+                <h2 className="text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter uppercase">
+                  Unsere <br />
+                  <span className="text-rose-600">Projekte</span>.
+                </h2>
+              </div>
+              <p className="text-slate-400 max-w-sm text-lg border-l-2 border-rose-600 pl-8">
+                Einblicke in abgeschlossene und laufende Bauprojekte – von der Bodenplatte bis zur schlüsselfertigen Übergabe.
+              </p>
+            </div>
+          </div>
+          <div className="relative overflow-hidden w-full pb-20">
+            <Carousel slides={GALLERY_SLIDES} />
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section id="contact" className="py-24 md:py-32 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="bg-white border border-slate-200 overflow-hidden">
               <div className="grid lg:grid-cols-2">
                 <div className="p-8 md:p-20">
-                  <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Kontakt</span>
-                  <h2 className="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-12 tracking-tighter uppercase">
-                    Sprechen wir über <br />
-                    <span className="text-rose-600">Ihr Projekt</span>.
+                  <span className="text-rose-600 font-bold tracking-[0.3em] uppercase text-[10px] mb-6 block">Jetzt starten</span>
+                  <h2 className="text-5xl md:text-6xl font-bold text-slate-900 leading-[1.1] mb-8 tracking-tighter uppercase">
+                    Bereit für Ihr <br />
+                    <span className="text-rose-600">Projekt</span>?
                   </h2>
+                  <p className="text-slate-500 text-lg leading-relaxed mb-12 border-l-2 border-rose-600 pl-6">
+                    Kontaktieren Sie uns unverbindlich – wir beraten Sie persönlich und entwickeln gemeinsam die beste Lösung für Ihr Vorhaben.
+                  </p>
                   
                   <div className="space-y-12">
                     <div className="flex items-start gap-8">
@@ -886,7 +960,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="relative h-[600px] lg:h-auto overflow-hidden bg-slate-100">
+                <div className="relative h-[350px] sm:h-[450px] lg:h-auto overflow-hidden bg-slate-100">
                   {cookieConsent.maps ? (
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8687.043571324855!2d9.038587577460685!3d48.86646560013692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799d796548ba5b7%3A0xe8c760768f995ca!2sSchwer%20Bau-%20und%20Renovierungs%20GmbH!5e1!3m2!1sde!2sde!4v1774013999333!5m2!1sde!2sde"
@@ -923,18 +997,20 @@ export default function App() {
                       </button>
                     </div>
                   )}
-                  <div className="absolute bottom-12 left-12 z-10">
-                    <a 
-                      href="https://www.google.com/maps/dir/?api=1&destination=Patronatstraße+22,+71282+Hemmingen" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="px-10 py-5 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] shadow-2xl hover:bg-rose-700 transition-all flex items-center gap-4"
-                      aria-label="Route zu unserem Standort berechnen"
-                    >
-                      <MapPin size={20} />
-                      Route berechnen
-                    </a>
-                  </div>
+                  {cookieConsent.maps && (
+                    <div className="absolute bottom-12 left-12 z-10">
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=Patronatstraße+22,+71282+Hemmingen"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-10 py-5 bg-rose-600 text-white text-[10px] font-bold uppercase tracking-[0.2em] shadow-2xl hover:bg-rose-700 transition-all flex items-center gap-4"
+                        aria-label="Route zu unserem Standort berechnen"
+                      >
+                        <MapPin size={20} />
+                        Route berechnen
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -961,9 +1037,10 @@ export default function App() {
                   <h4 className="text-[10px] uppercase tracking-[0.3em] text-white font-bold mb-10">Navigation</h4>
                   <ul className="space-y-6 text-sm text-slate-400">
                     <li><a href="#home" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Zur Startseite">Startseite</a></li>
-                    <li><a href="#überuns" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Mehr über uns">Über uns</a></li>
                     <li><a href="#leistungen" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Unsere Leistungen">Leistungen</a></li>
-                    <li><a href="#werte" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Unsere Werte">Werte</a></li>
+                    <li><a href="#überuns" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Mehr über uns">Über uns</a></li>
+                    <li><a href="#galerie" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Unsere Galerie">Galerie</a></li>
+                    <li><a href="#contact" className="hover:text-rose-600 transition-colors uppercase tracking-widest font-bold" aria-label="Kontakt aufnehmen">Kontakt</a></li>
                   </ul>
                 </div>
                 <div>
@@ -978,7 +1055,7 @@ export default function App() {
             </div>
             
             <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">
-              <p>© {new Date().getFullYear()} SCHWER BAU- und Renovierung GmbH</p>
+              <p>© {new Date().getFullYear()} SCHWER BAU- und Renovierungs GmbH</p>
               <div className="flex gap-12">
                 <span>Handwerk aus Leidenschaft</span>
                 <span>Hemmingen, Deutschland</span>

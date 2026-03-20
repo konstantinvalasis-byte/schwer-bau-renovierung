@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://schwer-bau.de/sitemap.xml
