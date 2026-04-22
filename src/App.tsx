@@ -697,7 +697,7 @@ export default function App() {
                 <span className="text-rose-600">Vertrauen</span>.
               </h1>
               <p className="text-xl text-slate-300 mb-16 leading-relaxed max-w-xl border-l-4 border-rose-600 pl-8">
-                Seit 2006 realisieren wir Bauprojekte mit Leidenschaft und schwäbischer Gründlichkeit. Ehrlich, verlässlich und immer auf Augenhöhe mit unseren Kunden.
+                Seit 2006 realisieren wir als Familienbetrieb Bauprojekte mit Leidenschaft und schwäbischer Gründlichkeit. Ehrlich, verlässlich und immer auf Augenhöhe mit unseren Kunden.
               </p>
               <div className="flex flex-wrap gap-6">
                 <a href="#leistungen" className="px-10 py-5 bg-rose-600 text-white font-bold uppercase tracking-widest hover:bg-rose-700 transition-all flex items-center gap-3" aria-label="Unsere Leistungen ansehen">
